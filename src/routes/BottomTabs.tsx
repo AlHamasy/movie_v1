@@ -24,6 +24,7 @@ const BottomTabNavigator = () => {
     tabBarActiveTintColor: defaultColors.secondary,
     tabBarInactiveTintColor: defaultColors.grayText,
     tabBarStyle: { paddingBottom: 0 },
+    headerShown: false,
   });
 
   return (

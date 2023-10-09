@@ -14,21 +14,13 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const AuthenticatedStack = () => {
   return (
     <Stack.Navigator initialRouteName={'BottomTabs'}>
-      <Stack.Screen name="BottomTabs" component={BottomTabs} />
       <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          ...fadeTransition,
-        }}
+        name="BottomTabs"
+        component={BottomTabs}
+        options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="Favorite"
-        component={Favorite}
-        options={{
-          ...fadeTransition,
-        }}
-      />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Favorite" component={Favorite} />
     </Stack.Navigator>
   );
 };

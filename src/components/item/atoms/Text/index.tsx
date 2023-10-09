@@ -1,7 +1,7 @@
 import React from 'react';
-import {RFValue as fs} from 'react-native-responsive-fontsize';
-import {Dimensions, StyleSheet, TextStyle, Animated} from 'react-native';
-import {defaultColors} from '../../../../themes';
+import { RFValue as fs } from 'react-native-responsive-fontsize';
+import { Dimensions, StyleSheet, TextStyle, Animated } from 'react-native';
+import { defaultColors } from '../../../../themes';
 
 type PropsText = {
   children: any;
@@ -27,7 +27,7 @@ const Text: React.FC<PropsText> = props => {
     color: props.color ? props.color : defaultColors.text,
   };
 
-  const {height} = Dimensions.get('window');
+  const { height } = Dimensions.get('window');
   const sizeText: object = {
     fontSize: props.size ? fs(props.size, height) : fs(12, height),
   };
@@ -46,7 +46,7 @@ const Text: React.FC<PropsText> = props => {
         textColor,
         sizeText,
         props.style,
-        {textAlign: props.align},
+        { textAlign: props.align },
       ]}>
       {props.children}
     </Animated.Text>
