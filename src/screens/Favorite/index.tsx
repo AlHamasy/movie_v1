@@ -6,7 +6,7 @@ import {defaultColors} from '../../themes';
 const FavoriteScreen = () => {
   return (
     <View style={styles.container}>
-      <StatusBar translucent />
+      {/* <StatusBar translucent /> */}
       <Text type="regular" size={20}>
         Hello!
       </Text>

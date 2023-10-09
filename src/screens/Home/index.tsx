@@ -8,8 +8,7 @@ import {
   endpointMovieNowPlaying,
 } from '../../utils/helpers/dataDummy';
 import axios from 'axios';
-
-const statusBarHeight: any = StatusBar.currentHeight;
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
   const [moviesData, setMoviesData] = useState<any[]>([]);
@@ -39,7 +38,7 @@ const HomeScreen = () => {
   }, [fetchMovieData]);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         translucent
         backgroundColor="transparent"
@@ -53,13 +52,16 @@ const HomeScreen = () => {
             Asad
           </Text>
         </Text>
+        <Text type="regular" size={20}>
+          Select your favorite movie
+        </Text>
       </View>
       {moviesData.map(movie => (
         <Text type="regular" key={movie.id}>
           {movie.title}
         </Text>
       ))}
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -69,7 +71,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultColors.grayBackground,
   },
   greetingText: {
-    marginTop: statusBarHeight + 8,
     marginHorizontal: 16,
   },
 });
