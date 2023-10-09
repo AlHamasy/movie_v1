@@ -1,3 +1,3 @@
-import type {RootStackParamList} from './_types';
+import type { RootStackParamList } from './_types';
 
-export {RootStackParamList};
+export { RootStackParamList };

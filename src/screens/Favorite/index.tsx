@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, StatusBar} from 'react-native';
-import {Text} from '../../components';
-import {defaultColors} from '../../themes';
+import { View, StyleSheet, StatusBar } from 'react-native';
+import { Text } from '../../components';
+import { defaultColors } from '../../themes';
 
 const FavoriteScreen = () => {
   return (

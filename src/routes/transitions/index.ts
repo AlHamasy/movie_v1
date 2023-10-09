@@ -1,3 +1,3 @@
-import {fadeTransition} from './transitions';
+import { fadeTransition } from './transitions';
 
-export {fadeTransition};
+export { fadeTransition };

@@ -3,7 +3,7 @@ export const fadeTransition = {
   cardStyle: {
     backgroundColor: 'transparent',
   },
-  cardStyleInterpolator: ({current}: {current: any}) => ({
+  cardStyleInterpolator: ({ current }: { current: any }) => ({
     cardStyle: {
       opacity: current.progress,
     },

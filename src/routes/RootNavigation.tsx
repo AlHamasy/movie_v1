@@ -1,7 +1,7 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {RootStackParamList} from './_types';
-import {fadeTransition} from './transitions';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RootStackParamList } from './_types';
+import { fadeTransition } from './transitions';
 
 //screens
 import BottomTabs from './BottomTabs';
@@ -13,18 +13,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AuthenticatedStack = () => {
   return (
-    <Stack.Navigator
-      initialRouteName={'BottomTabs'}
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen
-        name="BottomTabs"
-        component={BottomTabs}
-        options={{
-          ...fadeTransition,
-        }}
-      />
+    <Stack.Navigator initialRouteName={'BottomTabs'}>
+      <Stack.Screen name="BottomTabs" component={BottomTabs} />
       <Stack.Screen
         name="Home"
         component={Home}

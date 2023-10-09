@@ -1,14 +1,14 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {View, StyleSheet, StatusBar} from 'react-native';
-import {Text} from '../../components';
-import {defaultColors} from '../../themes';
+import React, { useCallback, useEffect, useState } from 'react';
+import { View, StyleSheet, StatusBar } from 'react-native';
+import { Text } from '../../components';
+import { defaultColors } from '../../themes';
 import {
   BASE_URL_API,
   TOKEN,
   endpointMovieNowPlaying,
 } from '../../utils/helpers/dataDummy';
 import axios from 'axios';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
   const [moviesData, setMoviesData] = useState<any[]>([]);
@@ -45,15 +45,8 @@ const HomeScreen = () => {
         barStyle={'dark-content'}
       />
       <View style={styles.greetingText}>
-        <Text type="regular" size={20}>
-          Hello!
-          <Text type="medium" size={22}>
-            {' '}
-            Asad
-          </Text>
-        </Text>
-        <Text type="regular" size={20}>
-          Select your favorite movie
+        <Text type="semibold" size={24} color={defaultColors.white}>
+          Movie
         </Text>
       </View>
       {moviesData.map(movie => (
@@ -71,7 +64,9 @@ const styles = StyleSheet.create({
     backgroundColor: defaultColors.grayBackground,
   },
   greetingText: {
-    marginHorizontal: 16,
+    padding: 12,
+    alignItems: 'center',
+    backgroundColor: defaultColors.secondary,
   },
 });
 

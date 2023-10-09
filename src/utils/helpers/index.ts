@@ -1,2 +1,2 @@
 import hexToRGBA from './colorUtils';
-export {hexToRGBA};
+export { hexToRGBA };
