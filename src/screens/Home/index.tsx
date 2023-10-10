@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { View, StyleSheet, StatusBar, Image } from 'react-native';
-import { Text } from '../../components';
+import { View, StyleSheet, StatusBar } from 'react-native';
+import { Text, Loading, Error } from '../../components';
 import { defaultColors } from '../../themes';
 import {
   BASE_URL_API,
@@ -31,7 +31,6 @@ const HomeScreen = () => {
 
       if (response.status === 200) {
         setMoviesData(response.data.results);
-        setCurrentPage(2);
       } else {
         setMoviesData([]);
       }
@@ -113,10 +112,10 @@ const HomeScreen = () => {
         renderItem={renderMovieItems}
         keyExtractor={(_, idx: number) => idx.toString()}
         estimatedItemSize={20}
-        onEndReached={fetchMoreMovieData}
+        // onEndReached={fetchMoreMovieData}
       />
     );
-  }, [fetchMoreMovieData, moviesData, renderMovieItems]);
+  }, [moviesData, renderMovieItems]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -127,10 +126,11 @@ const HomeScreen = () => {
       />
       <View style={styles.greetingText}>
         <Text type="semibold" size={24} color={defaultColors.secondary}>
-          Movie {currentPage}
+          Movie
         </Text>
       </View>
       {renderFlashlist}
+      {/* <Loading /> */}
     </SafeAreaView>
   );
 };
