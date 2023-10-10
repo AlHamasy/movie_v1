@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import { Text, Loading, Error } from '../../components';
+import { Text, Loading, Error, Pressable, EmptyList } from '../../components';
 import { defaultColors } from '../../themes';
 import {
   BASE_URL_API,
@@ -14,13 +14,18 @@ import { FlashList } from '@shopify/flash-list';
 import FastImage from 'react-native-fast-image';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
+import { debounce } from 'lodash';
 
 const HomeScreen = () => {
   dayjs.locale('id');
   const [moviesData, setMoviesData] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const sizeListMovie = 20;
 
   const fetchMovieData = useCallback(async () => {
+    setIsLoading(true);
     const url = `${BASE_URL_API}${endpointMovieNowPlaying}?language=en-US&page=1`;
     try {
       const response = await axios.get(url, {
@@ -30,16 +35,26 @@ const HomeScreen = () => {
       });
 
       if (response.status === 200) {
-        setMoviesData(response.data.results);
+        setIsError(false);
+        if (response.data.results.length !== 0) {
+          setMoviesData(response.data.results);
+          setCurrentPage(2);
+        } else {
+          setMoviesData([]);
+        }
       } else {
-        setMoviesData([]);
+        setIsError(true);
       }
     } catch (error) {
+      setIsError(true);
       console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
   const fetchMoreMovieData = useCallback(async () => {
+    setIsLoading(true);
     const url = `${BASE_URL_API}${endpointMovieNowPlaying}?language=en-US&page=${currentPage}`;
     try {
       const response = await axios.get(url, {
@@ -49,13 +64,43 @@ const HomeScreen = () => {
       });
 
       if (response.status === 200) {
-        setMoviesData([...moviesData, ...response.data.results]);
-        setCurrentPage(currentPage + 1);
+        setIsError(false);
+        if (response.data.results.length !== 0) {
+          setMoviesData([...moviesData, ...response.data.results]);
+          setCurrentPage(currentPage + 1);
+        }
+      } else {
+        setIsError(true);
       }
     } catch (error) {
       console.error('Error:', error);
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   }, [currentPage, moviesData]);
+
+  const handleStatusView = useCallback((): string => {
+    if (isLoading && moviesData.length === 0) {
+      return 'loading';
+    } else if (isError) {
+      return 'error';
+    } else if (moviesData.length === 0) {
+      return 'empty';
+    } else if (moviesData.length >= 0) {
+      return 'show';
+    } else {
+      return 'show';
+    }
+  }, [isError, isLoading, moviesData.length]);
+
+  const handleEndReached = debounce(() => {
+    if (!isLoading) {
+      if (moviesData.length >= sizeListMovie) {
+        fetchMoreMovieData();
+      }
+    }
+  }, 300);
 
   useEffect(() => {
     fetchMovieData();
@@ -63,7 +108,7 @@ const HomeScreen = () => {
 
   const renderMovieItems = useCallback(({ item }: { item: any }) => {
     return (
-      <View
+      <Pressable
         style={{
           marginHorizontal: 16,
           marginVertical: 8,
@@ -101,21 +146,55 @@ const HomeScreen = () => {
             {item.overview}
           </Text>
         </View>
-      </View>
+      </Pressable>
     );
   }, []);
+
+  const ListFooterComponent = useMemo(() => {
+    return (
+      <View style={{ height: 100, alignItems: 'center' }}>
+        {moviesData.length >= sizeListMovie && (
+          <Text color={defaultColors.grayText} type="regular" size={19}>
+            {isLoading ? 'Memuat data...' : ''}
+          </Text>
+        )}
+      </View>
+    );
+  }, [isLoading, moviesData.length]);
 
   const renderFlashlist = useMemo(() => {
     return (
       <FlashList
         data={moviesData}
+        extraData={moviesData}
         renderItem={renderMovieItems}
         keyExtractor={(_, idx: number) => idx.toString()}
-        estimatedItemSize={20}
-        // onEndReached={fetchMoreMovieData}
+        onEndReached={() => {
+          handleEndReached();
+        }}
+        estimatedItemSize={1000}
+        ListFooterComponent={ListFooterComponent}
       />
     );
-  }, [moviesData, renderMovieItems]);
+  }, [ListFooterComponent, handleEndReached, moviesData, renderMovieItems]);
+
+  const renderStatusView = useCallback(
+    (status: string) => {
+      switch (status) {
+        case 'loading':
+          return <Loading />;
+        case 'error':
+          return <Error onPress={() => fetchMovieData()} />;
+        case 'empty':
+          return <EmptyList message={'Tidak ada list Movie'} />;
+        case 'show':
+          return renderFlashlist;
+        default:
+          return <View style={{ flex: 1 }} />;
+      }
+    },
+    [fetchMovieData, renderFlashlist],
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -129,8 +208,7 @@ const HomeScreen = () => {
           Movie
         </Text>
       </View>
-      {renderFlashlist}
-      {/* <Loading /> */}
+      {renderStatusView(handleStatusView())}
     </SafeAreaView>
   );
 };

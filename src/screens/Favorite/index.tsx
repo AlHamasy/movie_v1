@@ -2,18 +2,22 @@ import React from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
 import { Text } from '../../components';
 import { defaultColors } from '../../themes';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const FavoriteScreen = () => {
   return (
-    <View style={styles.container}>
-      {/* <StatusBar translucent /> */}
-      <Text type="regular" size={20}>
-        Hello!
-      </Text>
-      <Text type="medium" size={22}>
-        Selamat datang Asadullah Al Hamasy
-      </Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle={'dark-content'}
+      />
+      <View style={styles.greetingText}>
+        <Text type="semibold" size={24} color={defaultColors.secondary}>
+          Favorite
+        </Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -22,10 +26,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: defaultColors.grayBackground,
   },
-  title: {
-    color: defaultColors.secondary,
-    fontSize: 24,
-    fontFamily: 'Devil',
+  greetingText: {
+    padding: 12,
+    alignItems: 'center',
   },
 });
 
