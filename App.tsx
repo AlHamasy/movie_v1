@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import RootNavigation from './src/routes/RootNavigation';
 
 function App(): JSX.Element {

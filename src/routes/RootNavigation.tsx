@@ -1,15 +1,21 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParamList } from './_types';
 import { fadeTransition } from './transitions';
+import {
+  TransitionPresets,
+  createStackNavigator,
+} from '@react-navigation/stack';
 
 //screens
 import BottomTabs from './BottomTabs';
 import Home from '../screens/Home';
 import Favorite from '../screens/Favorite';
 import Login from '../screens/Login';
+import Detail from '../screens/Detail';
+import { defaultColors } from '../themes';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 const AuthenticatedStack = () => {
   return (
@@ -19,8 +25,27 @@ const AuthenticatedStack = () => {
         component={BottomTabs}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Favorite" component={Favorite} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          ...fadeTransition,
+        }}
+      />
+      <Stack.Screen
+        name="Favorite"
+        component={Favorite}
+        options={{
+          ...fadeTransition,
+        }}
+      />
+      <Stack.Screen
+        name="Detail"
+        component={Detail}
+        options={{
+          ...fadeTransition,
+        }}
+      />
     </Stack.Navigator>
   );
 };

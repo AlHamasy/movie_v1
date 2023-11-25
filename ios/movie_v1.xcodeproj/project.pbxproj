@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* movie_v1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* movie_v1Tests.m */; };
+		06A0B402A10B4BA0AC8B5026 /* TTCommons-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE801A8606E445E8704B835 /* TTCommons-Regular.otf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-movie_v1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-movie_v1.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-movie_v1-movie_v1Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-movie_v1-movie_v1Tests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		37CC35CA12DE4328951D087D /* TTCommons-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B0D77AEBE7A4973AA2D6D02 /* TTCommons-Bold.otf */; };
 		4D258F2E441B4C6E918F1E7A /* TTCommons-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E41DAB9D5EAD4E0EB08F8E9E /* TTCommons-Light.otf */; };
-		D1B8852A747A414D8CCE817A /* TTCommons-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0ABEE55B0E804BBAAD7ED4EF /* TTCommons-Medium.otf */; };
-		06A0B402A10B4BA0AC8B5026 /* TTCommons-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE801A8606E445E8704B835 /* TTCommons-Regular.otf */; };
+		7699B88040F8A987B510C191 /* libPods-movie_v1-movie_v1Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-movie_v1-movie_v1Tests.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D19F618560F64F55A42EAD95 /* TTCommons-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 643078585B664D2FAC22C8B1 /* TTCommons-SemiBold.otf */; };
+		D1B8852A747A414D8CCE817A /* TTCommons-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0ABEE55B0E804BBAAD7ED4EF /* TTCommons-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +35,8 @@
 		00E356EE1AD99517003FC87E /* movie_v1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movie_v1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* movie_v1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = movie_v1Tests.m; sourceTree = "<group>"; };
+		0ABEE55B0E804BBAAD7ED4EF /* TTCommons-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TTCommons-Medium.otf"; path = "../src/assets/fonts/TTCommons-Medium.otf"; sourceTree = "<group>"; };
+		0DE801A8606E445E8704B835 /* TTCommons-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TTCommons-Regular.otf"; path = "../src/assets/fonts/TTCommons-Regular.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* movie_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movie_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = movie_v1/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = movie_v1/AppDelegate.mm; sourceTree = "<group>"; };
@@ -42,18 +44,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = movie_v1/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = movie_v1/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-movie_v1-movie_v1Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-movie_v1-movie_v1Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B0D77AEBE7A4973AA2D6D02 /* TTCommons-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TTCommons-Bold.otf"; path = "../src/assets/fonts/TTCommons-Bold.otf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-movie_v1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_v1.debug.xcconfig"; path = "Target Support Files/Pods-movie_v1/Pods-movie_v1.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-movie_v1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_v1.release.xcconfig"; path = "Target Support Files/Pods-movie_v1/Pods-movie_v1.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-movie_v1-movie_v1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_v1-movie_v1Tests.debug.xcconfig"; path = "Target Support Files/Pods-movie_v1-movie_v1Tests/Pods-movie_v1-movie_v1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-movie_v1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-movie_v1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		643078585B664D2FAC22C8B1 /* TTCommons-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TTCommons-SemiBold.otf"; path = "../src/assets/fonts/TTCommons-SemiBold.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = movie_v1/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-movie_v1-movie_v1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movie_v1-movie_v1Tests.release.xcconfig"; path = "Target Support Files/Pods-movie_v1-movie_v1Tests/Pods-movie_v1-movie_v1Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E41DAB9D5EAD4E0EB08F8E9E /* TTCommons-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TTCommons-Light.otf"; path = "../src/assets/fonts/TTCommons-Light.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		3B0D77AEBE7A4973AA2D6D02 /* TTCommons-Bold.otf */ = {isa = PBXFileReference; name = "TTCommons-Bold.otf"; path = "../src/assets/fonts/TTCommons-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E41DAB9D5EAD4E0EB08F8E9E /* TTCommons-Light.otf */ = {isa = PBXFileReference; name = "TTCommons-Light.otf"; path = "../src/assets/fonts/TTCommons-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0ABEE55B0E804BBAAD7ED4EF /* TTCommons-Medium.otf */ = {isa = PBXFileReference; name = "TTCommons-Medium.otf"; path = "../src/assets/fonts/TTCommons-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0DE801A8606E445E8704B835 /* TTCommons-Regular.otf */ = {isa = PBXFileReference; name = "TTCommons-Regular.otf"; path = "../src/assets/fonts/TTCommons-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		643078585B664D2FAC22C8B1 /* TTCommons-SemiBold.otf */ = {isa = PBXFileReference; name = "TTCommons-SemiBold.otf"; path = "../src/assets/fonts/TTCommons-SemiBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +148,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A7C6970514354C50A2446994 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B0D77AEBE7A4973AA2D6D02 /* TTCommons-Bold.otf */,
+				E41DAB9D5EAD4E0EB08F8E9E /* TTCommons-Light.otf */,
+				0ABEE55B0E804BBAAD7ED4EF /* TTCommons-Medium.otf */,
+				0DE801A8606E445E8704B835 /* TTCommons-Regular.otf */,
+				643078585B664D2FAC22C8B1 /* TTCommons-SemiBold.otf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,19 +171,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		A7C6970514354C50A2446994 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				3B0D77AEBE7A4973AA2D6D02 /* TTCommons-Bold.otf */,
-				E41DAB9D5EAD4E0EB08F8E9E /* TTCommons-Light.otf */,
-				0ABEE55B0E804BBAAD7ED4EF /* TTCommons-Medium.otf */,
-				0DE801A8606E445E8704B835 /* TTCommons-Regular.otf */,
-				643078585B664D2FAC22C8B1 /* TTCommons-SemiBold.otf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 

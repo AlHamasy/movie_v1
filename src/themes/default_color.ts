@@ -1,4 +1,4 @@
-import {ColorScheme} from './_types/';
+import { ColorScheme } from './_types/';
 
 export const defaultColors: ColorScheme = {
   primary: '#03243F',

@@ -15,6 +15,7 @@ import FastImage from 'react-native-fast-image';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
 import { debounce } from 'lodash';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
   dayjs.locale('id');
@@ -23,6 +24,7 @@ const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const sizeListMovie = 20;
+  const navigation: any = useNavigation();
 
   const fetchMovieData = useCallback(async () => {
     setIsLoading(true);
@@ -106,49 +108,53 @@ const HomeScreen = () => {
     fetchMovieData();
   }, [fetchMovieData]);
 
-  const renderMovieItems = useCallback(({ item }: { item: any }) => {
-    return (
-      <Pressable
-        style={{
-          marginHorizontal: 16,
-          marginVertical: 8,
-          backgroundColor: defaultColors.white,
-          borderRadius: 24,
-          overflow: 'hidden',
-          padding: 12,
-          flexDirection: 'row',
-        }}>
-        <FastImage
+  const renderMovieItems = useCallback(
+    ({ item }: { item: any }) => {
+      return (
+        <Pressable
           style={{
-            width: 100,
-            height: 150,
-            backgroundColor: 'skyblue',
-            borderRadius: 12,
+            marginHorizontal: 16,
+            marginVertical: 8,
+            backgroundColor: defaultColors.white,
+            borderRadius: 24,
+            overflow: 'hidden',
+            padding: 12,
+            flexDirection: 'row',
           }}
-          source={{
-            uri: `${BASE_URL_IMAGE}${item.poster_path}`,
-            priority: FastImage.priority.normal,
-          }}
-          resizeMode={FastImage.resizeMode.contain}
-        />
-        <View style={{ flex: 1, marginLeft: 12 }}>
-          <Text type="semibold" size={20} color={defaultColors.primary}>
-            {item.original_title}
-          </Text>
-          <Text type="regular" size={16} style={{ marginTop: 4 }}>
-            {'Release'} : {dayjs(item.release_date).format('D MMMM YYYY')}
-          </Text>
-          <Text
-            type="regular"
-            size={18}
-            numberOfLines={4}
-            style={{ marginTop: 6 }}>
-            {item.overview}
-          </Text>
-        </View>
-      </Pressable>
-    );
-  }, []);
+          onPress={() => navigation.navigate('Detail', { movieData: item })}>
+          <FastImage
+            style={{
+              width: 100,
+              height: 150,
+              backgroundColor: 'skyblue',
+              borderRadius: 12,
+            }}
+            source={{
+              uri: `${BASE_URL_IMAGE}${item.poster_path}`,
+              priority: FastImage.priority.normal,
+            }}
+            resizeMode={FastImage.resizeMode.contain}
+          />
+          <View style={{ flex: 1, marginLeft: 12 }}>
+            <Text type="semibold" size={20} color={defaultColors.primary}>
+              {item.original_title}
+            </Text>
+            <Text type="regular" size={16} style={{ marginTop: 4 }}>
+              {'Release'} : {dayjs(item.release_date).format('D MMMM YYYY')}
+            </Text>
+            <Text
+              type="regular"
+              size={18}
+              numberOfLines={4}
+              style={{ marginTop: 6 }}>
+              {item.overview}
+            </Text>
+          </View>
+        </Pressable>
+      );
+    },
+    [navigation],
+  );
 
   const ListFooterComponent = useMemo(() => {
     return (
