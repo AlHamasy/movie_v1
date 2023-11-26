@@ -140,7 +140,7 @@ const HomeScreen = () => {
               {item.original_title}
             </Text>
             <Text type="regular" size={16} style={{ marginTop: 4 }}>
-              {'Release'} : {dayjs(item.release_date).format('D MMMM YYYY')}
+              {dayjs(item.release_date).format('MMM D, YYYY')}
             </Text>
             <Text
               type="regular"
